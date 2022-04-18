@@ -54,11 +54,4 @@ class User extends \TCG\Voyager\Models\User
         return $this->hasOne(UserInfo::class);
     }
 
-    public function  getTotalAttribute(){
-        $total = $this->hotel->price;
-        foreach($this->activities as $activity){
-            $total += $activity->price;
-        }
-        return $total;
-    }
 }

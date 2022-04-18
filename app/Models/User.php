@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -54,11 +54,4 @@ class User extends Authenticatable
         return $this->hasOne(UserInfo::class);
     }
 
-    public function  getTotalAttribute(){
-        $total = $this->hotel->price;
-        foreach($this->activities as $activity){
-            $total += $activity->price;
-        }
-        return $total;
-    }
 }

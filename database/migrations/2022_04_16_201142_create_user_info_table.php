@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRomeTypesTable extends Migration
+class CreateUserInfoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateRomeTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('rome_types', function (Blueprint $table) {
+        Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
-            $table->text('name');
-            $table->integer('capacity');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->foreignId('hotel_id')->references('id')->on('hotels');
+            $table->bigInteger('cost');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateRomeTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rome_types');
+        Schema::dropIfExists('user_info');
     }
 }

@@ -24,3 +24,8 @@ Route::get('/', function () {
 Route::resource('Activity', ActivityController::class);
 Route::resource('Hotel', HotelController::class);
 Route::resource('HotelRome', HotelRomeController::class);
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

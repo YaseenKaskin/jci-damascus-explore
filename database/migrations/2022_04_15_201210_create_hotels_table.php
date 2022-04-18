@@ -19,6 +19,7 @@ class CreateHotelsTable extends Migration
             $table->string('address');
             $table->text('description');
             $table->integer('price');
+            $table->integer('capacity');
             $table->timestamps();
         });
     }

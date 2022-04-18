@@ -18,7 +18,6 @@ use App\Models\Hotel;
 use App\Models\User;
 
 Route::get('/', function () {
-    return Hotel::find(1)->capacity;
     return view('welcome');
 });
 
